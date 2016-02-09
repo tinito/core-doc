@@ -1,1 +1,10 @@
-site_name: My Docs
+site_name: Nova Core documentation
+theme: bootstrap
+pages:
+- Introduction: 'index.md'
+- Quick start: 'quick-start.md'
+- Tutorials: 'tutorials/index.md'
+- HW reference:
+  - Introduction: 'hw/index.md'
+  - IMU module: 'hw/imu-module.md'
+- MW reference: 'mw/index.md'
