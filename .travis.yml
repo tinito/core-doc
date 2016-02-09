@@ -1,0 +1,22 @@
+language: python
+python:
+    - "2.7"
+#cache: apt
+install:
+ #   - "sudo apt-get install pandoc"
+    - "pip install mkdocs"
+script: "mkdocs build"
+deploy:
+    provider: s3
+    access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: docs.novalabs.io
+    endpoint: docs.novalabs.io.s3-website.eu-central-1.amazonaws.com
+    region: eu-central-1
+    skip_cleanup: true
+    local-dir: site
+    acl: public_read
+    detect_encoding: true
+notifications:
+    email:
+        on_failure: always
