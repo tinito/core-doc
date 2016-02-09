@@ -1,11 +1,14 @@
 language: python
 python:
-    - "2.7"
+    - 2.7
 #cache: apt
 install:
  #   - "sudo apt-get install pandoc"
-    - "pip install mkdocs"
-script: "mkdocs build"
+    - pip install mkdocs
+    - gem install html-proofer
+script:
+    - mkdocs build
+    - html-proofer ./site
 deploy:
     provider: s3
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
